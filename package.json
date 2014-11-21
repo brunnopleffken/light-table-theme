@@ -1,0 +1,14 @@
+{
+    "name": "brunnopleffken.light-table-theme",
+    "title": "LightTable",
+    "description": "Cool and pleasant colors, based on LightTable default theme.",
+    "homepage": "https://github.com/brunnopleffken/light-table-theme",
+    "version": "1.0.0",
+    "author": "Brunno Pleffken <brunno.pleffken@outlook.com> (http://github.com/brunnopleffken)",
+    "license": "MIT",
+    "theme": {
+        "file": "theme.less",
+        "dark": true
+    },
+    "keywords": ["theme"]
+}

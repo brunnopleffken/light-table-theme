@@ -1,0 +1,106 @@
+@background: #202020;
+@foreground: #cccccc;
+
+.CodeMirror, .CodeMirror-scroll {
+    background: @background;
+    color: @foreground;
+    line-height: 1.3em;
+}
+
+.cm-symbol { color: #ccc; }
+.cm-variable { color: #ccc; }
+.cm-variable-2 { color: #acf}
+.cm-string { color: #add}
+.cm-string-2 { color: #add; }
+.cm-number { color: #ccc; }
+.cm-def { color: #acf; }
+.cm-builtin { color: #aec; }
+.cm-header { color: #aec; }
+.cm-property { color: #aaa; }
+.cm-operator { color: #aaa; }
+.cm-keyword { color: #aec; }
+.cm-qualifier { color: #aec; }
+.cm-attribute { color: #aec; }
+.cm-meta { color: #aec; }
+.cm-atom { color: #caf; }
+.cm-tag { color: #acf; }
+.cm-comment { color: #9ac; }
+
+.CodeMirror-searching {
+    background-color: #5f5f5f;
+    color: #eee !important;
+    &.searching-current-match {
+        background-color: #13879C;
+        color: #BFFCFF !important;
+    }
+}
+
+.CodeMirror-cursor { border-left: 1px solid #ffffff !important; }
+.CodeMirror-gutters { background: @background; border-right: none; }
+.CodeMirror-linenumber { color: #767676; }
+.CodeMirror .CodeMirror-selected { background: #555555; }
+.CodeMirror-focused .CodeMirror-selected { background: #444444; }
+.CodeMirror-focused .CodeMirror-activeline-background { background: #303030; }
+.CodeMirror-activeline .CodeMirror-gutter-elt { background: @background; color: #ffffff; }
+
+.CodeMirror-matchingbracket, .CodeMirror-matchingtag {
+    /* Ensure visibility against gray inline editor background */
+    background-color: transparent;
+    border-bottom: 1px solid #3FF;
+    color: #0f0 !important;
+}
+.CodeMirror-nonmatchingbracket {
+    background-color: none;
+    border-bottom: 1px solid #F33;
+    color: #F33;
+}
+
+.CodeMirror-overwrite .CodeMirror-cursor {
+    border-left: none !important;
+    border-bottom: 1px solid #fff;
+}
+
+/*
+    CodeMirror's use of descendant selectors for certain styling causes problems when editors are
+    nested because, for items in the inner editor, the left-hand clause in the selector will now
+    match either the actual containing CodeMirror instance *OR* the outer "host" CodeMirror instance.
+
+    TODO (issue #324): We'll still have problems if editors can be nested more than one level deep,
+    or if any other descendant-selector-driven CM styles can differ between inner & outer editors
+    (potential problem areas include line wrap and coloring theme: basically, anything in codemirror.css
+    that uses a descandant selector where the CSS class name to the left of the space is something
+    other than a vanilla .CodeMirror)
+*/
+.CodeMirror {
+    .CodeMirror {
+        background: transparent;
+    }
+    .CodeMirror .CodeMirror-gutters {
+        background: transparent;
+        border-right: none;
+    }
+    .CodeMirror .CodeMirror-activeline-background {
+        background: transparent;
+    }
+    .CodeMirror .CodeMirror-activeline .CodeMirror-gutter-elt {
+        background: transparent;
+        color: #767676;
+    }
+    .CodeMirror-focused .CodeMirror-activeline-background {
+        background: #2f2f2f;
+    }
+    .CodeMirror-focused .CodeMirror-activeline {
+        .CodeMirror-gutter-elt {
+            background: rgba(0, 0, 0, 0.2);
+            color: #fff;
+        }
+    }
+}
+
+.image-view,
+.not-editor {
+    background-color: @background;
+}
+.view-pane .image-view {
+    color: @foreground;
+}
